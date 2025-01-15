@@ -9,7 +9,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Write to File
-      uses: ./  # 使用当前仓库中的自定义 Action
+      uses: ./action/  # 使用当前仓库中的自定义 Action
       with:
         file: ok.txt
         content: mv
