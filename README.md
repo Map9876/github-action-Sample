@@ -236,3 +236,39 @@ npm install
 │   └── package.json
 ├── ok.txt
 ```
+
+# 流程
+使用某个github action项目
+
+https://github.com/buiawpkgew1/minecraft-plugin-runtime-test-Guizhan/blob/main/package.json
+
+会去使用他的仓库的action.yml
+
+以下是action.yml的最后一部分
+
+```
+    - name: 在 Paper-${{ inputs.server-version }} 上运行测试
+      shell: bash
+      env: 
+        SERVER_VERSION: ${{ inputs.server-version }} 
+      run: npm start
+```
+
+这里运行的是在他仓库里运行npm start，
+
+运行之后会找package.json，下面是package.json
+
+```
+{
+  "name": "minecraft-plugin-runtime-test",
+  "version": "1.0.0",
+  "description": "A github action for testing minecraft plugins on combination of server version",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "FN-FAL113",
+  "license": "GPL-3.0-or-later"
+}
+```
+scripts里有start ，所以再运行node index.js，然后去找他仓库主目录里的index.js
