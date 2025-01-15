@@ -1,0 +1,15 @@
+name: Build and Write to File
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Write to File
+      uses: ./  # 使用当前仓库中的自定义 Action
+      with:
+        file: ok.txt
+        content: mv
