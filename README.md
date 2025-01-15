@@ -154,7 +154,9 @@ jobs:
 https://blog.csdn.net/daddykei/article/details/135456076 。
 
 创建github action 项目
+
 2. 创建自定义 GitHub Action
+
 在你的仓库根目录下，创建一个目录比如 action，然后在该目录下创建以下文件。
 action.yml
 
@@ -213,6 +215,7 @@ package.json
   }
 }
 
+```
 
 3. 安装依赖
 在创建 package.json 文件后，运行 npm install 来安装依赖：
@@ -232,3 +235,4 @@ npm install
 │   ├── index.js
 │   └── package.json
 ├── ok.txt
+```
