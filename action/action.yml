@@ -1,0 +1,12 @@
+name: 'Movie Action'
+description: 'Writes content to a file'
+inputs:
+  file:
+    description: 'The file to write to'
+    required: true
+  content:
+    description: 'The content to write to the file'
+    required: true
+runs:
+  using: 'node12'
+  main: 'index.js'
