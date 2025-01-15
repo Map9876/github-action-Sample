@@ -2,6 +2,7 @@
 github action开发例子
 
 #
+https://github.com/copilot/c/2617fe48-d39e-46a5-b2f8-0ee4abff6826
 
 GPT 4o
 
@@ -121,7 +122,9 @@ Entrypoint Script (entrypoint.sh): This is the script that runs inside the Docke
 This setup will create a custom GitHub Action that writes the content mv to the file ok.txt and builds it using Docker.
 
 
-# 我不需要docker 我需要的是给我这个github action 项目的源代码 以js形式
+#
+
+#### 我不需要docker 我需要的是给我这个github action 项目的源代码 以js形式
 
 好的，我明白了。以下是使用 JavaScript 编写的 GitHub Action 项目的源代码，该代码将创建一个名为 ok.txt 的文件，并将内容 mv 写入其中。
 
@@ -147,8 +150,10 @@ jobs:
 ```
 
 这个uses，可以使用别的`- uses: actions/checkout@v4`库，如果使用自己仓库，类似于`uses: ./` ，他会去找主目录下
-`Error: Can't find 'action.yml', 'action.yaml' or 'Dockerfile' under '/home/runner/work/github-action-Sample/github-action-Sample'. Did you forget to run actions/checkout before running your local action?` 这几个文件 ，比如`action.yml` ，都是action仓库的标准
-https://blog.csdn.net/daddykei/article/details/135456076 创建github action 项目
+`Error: Can't find 'action.yml', 'action.yaml' or 'Dockerfile' under '/home/runner/work/github-action-Sample/github-action-Sample'. Did you forget to run actions/checkout before running your local action?` 这几个文件 ，比如`action.yml` ，都是action仓库的标准。
+https://blog.csdn.net/daddykei/article/details/135456076 。
+
+创建github action 项目
 2. 创建自定义 GitHub Action
 在你的仓库根目录下，创建一个目录比如 action，然后在该目录下创建以下文件。
 action.yml
