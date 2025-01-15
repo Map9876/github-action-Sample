@@ -145,7 +145,10 @@ jobs:
         file: ok.txt
         content: mv
 ```
-        
+
+这个uses，可以使用别的`- uses: actions/checkout@v4`库，如果使用自己仓库，类似于`uses: ./` ，他会去找主目录下
+`Error: Can't find 'action.yml', 'action.yaml' or 'Dockerfile' under '/home/runner/work/github-action-Sample/github-action-Sample'. Did you forget to run actions/checkout before running your local action?` 这几个文件 ，比如`action.yml` ，都是action仓库的标准
+https://blog.csdn.net/daddykei/article/details/135456076 创建github action 项目
 2. 创建自定义 GitHub Action
 在你的仓库根目录下，创建一个目录比如 action，然后在该目录下创建以下文件。
 action.yml
