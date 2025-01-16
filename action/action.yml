@@ -1,3 +1,5 @@
+
+
 name: 'Movie Action'
 description: 'Writes content to a file'
 inputs:
@@ -8,5 +10,16 @@ inputs:
     description: 'The content to write to the file'
     required: true
 runs:
-  using: 'node12'
-  main: 'index.js'
+  using: 'composite'
+  steps:
+    - name: Install dependencies
+      run: npm install
+      shell: bash
+
+    - name: Run main script
+      run: node index.js
+      shell: bash
+      env:
+        FILE: ${{ inputs.file }}
+        CONTENT: ${{ inputs.content }}
+        
