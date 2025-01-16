@@ -17,7 +17,7 @@ runs:
       shell: bash
 
     - name: Run main script
-      run: node index.js
+      run: node action/index.js
       shell: bash
       env:
         FILE: ${{ inputs.file }}
