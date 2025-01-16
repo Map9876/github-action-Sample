@@ -272,3 +272,32 @@ https://github.com/buiawpkgew1/minecraft-plugin-runtime-test-Guizhan/blob/main/p
 }
 ```
 scripts里有start ，所以再运行node index.js，然后去找他仓库主目录里的index.js
+
+
+
+Copilot Chat
+Using composite runs in GitHub Actions
+name: 'Movie Action'
+description: 'Writes content to a file'
+inputs:
+  file:
+    description: 'The file to write to'
+    required: true
+  content:
+    description: 'The content to write to the file'
+    required: true
+runs:
+  using: 'node12'
+  main: 'index.js' 这个怎么使用runs:
+  using: 'composite'
+  steps:
+
+    - name: 在 Paper-${{ inputs.server-version }} 上运行测试
+      shell: bash
+      run: npm install .  这种run: npm install .  的方法https://github.com/buiawpkgew1/minecraft-plugin-runtime-test-Guizhan/blob/main/action.yml
+      
+      shell:
+      bash
+      run: npm install .  我是说这个怎么同时使用 runs:
+  using: 'node12'
+  main: 'index.js'
