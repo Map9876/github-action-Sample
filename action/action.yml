@@ -13,7 +13,9 @@ runs:
   using: 'composite'
   steps:
     - name: Install dependencies
-      run: npm install
+      run: |
+         cd action
+         npm install
       shell: bash
 
     - name: Run main script
