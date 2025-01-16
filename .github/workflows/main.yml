@@ -8,6 +8,17 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+          node-version: '12'
+    - name: Install dependencies
+      run: npm install
+     
     - name: Write to File
       uses: ./action/  # 使用当前仓库中的自定义 Action
       with:
