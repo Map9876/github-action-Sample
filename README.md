@@ -301,3 +301,119 @@ runs:
       run: npm install .  我是说这个怎么同时使用 runs:
   using: 'node12'
   main: 'index.js'
+
+
+# action本体 action.yml
+
+```yaml
+# action本体 action.yml
+
+name: 'Movie Action'
+description: 'Writes content to a file'
+inputs:
+  file:
+    description: 'The file to write to'
+    required: true
+  content:
+    description: 'The content to write to the file'
+    required: true
+runs:
+  using: 'node12'
+  main: 'index.js'
+```
+
+上面修改为：
+
+```yaml
+# action本体 action.yml
+name: 'Movie Action'
+description: 'Writes content to a file'
+inputs:
+  file:
+    description: 'The file to write to'
+    required: true
+  content:
+    description: 'The content to write to the file'
+    required: true
+runs:
+  using: 'composite'
+  steps:
+    - name: Install dependencies
+      run: |
+         cd action
+         npm install
+      shell: bash
+
+    - name: Run main script
+      run: node action/index.js
+      shell: bash
+      env:
+        FILE: ${{ inputs.file }}
+        CONTENT: ${{ inputs.content }}
+```
+
+Prepare all required actions
+2
+Run ./action/
+6
+Run cd action
+10
+npm notice created a lockfile as package-lock.json. You should commit this file.
+11
+npm WARN notsup Unsupported engine for undici@5.28.5: wanted: {"node":">=14.0"} (current: {"node":"12.22.12","npm":"6.14.16"})
+12
+npm WARN notsup Not compatible with your version of node/npm: undici@5.28.5
+13
+npm WARN notsup Unsupported engine for @fastify/busboy@2.1.1: wanted: {"node":">=14"} (current: {"node":"12.22.12","npm":"6.14.16"})
+14
+npm WARN notsup Not compatible with your version of node/npm: @fastify/busboy@2.1.1
+15
+npm WARN movie-action@1.0.0 No repository field.
+16
+npm WARN movie-action@1.0.0 No license field.
+17
+
+18
+added 7 packages from 11 contributors and audited 7 packages in 0.827s
+19
+found 0 vulnerabilities
+20
+
+21
+Run node action/index.js
+27
+/home/runner/work/github-action-Sample/github-action-Sample/action/node_modules/undici/lib/handler/RetryHandler.js:29
+28
+    } = retryOptions ?? {}
+29
+                      ^
+30
+
+31
+SyntaxError: Unexpected token '?'
+32
+    at wrapSafe (internal/modules/cjs/loader.js:915:16)
+33
+    at Module._compile (internal/modules/cjs/loader.js:963:27)
+34
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)
+35
+    at Module.load (internal/modules/cjs/loader.js:863:32)
+36
+    at Function.Module._load (internal/modules/cjs/loader.js:708:14)
+37
+    at Module.require (internal/modules/cjs/loader.js:887:19)
+38
+    at require (internal/modules/cjs/helpers.js:74:18)
+39
+    at Object.<anonymous> (/home/runner/work/github-action-Sample/github-action-Sample/action/node_modules/undici/index.js:18:22)
+40
+    at Module._compile (internal/modules/cjs/loader.js:999:30)
+41
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1027:10)
+42
+Error: Process completed with exit code 1.
+This step has been truncated due to its large size. Download the full logs from the  menu once the workflow run has completed.
+Post Set up Node.js
+
+使用action.yml的run.yml需要node20
