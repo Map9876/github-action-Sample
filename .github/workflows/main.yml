@@ -17,7 +17,9 @@ jobs:
       with:
           node-version: '20'
     - name: Install dependencies
-      run: npm install
+      run: |
+        cd action
+        npm install
      
     - name: Write to File
       uses: ./action/  # 使用当前仓库中的自定义 Action
